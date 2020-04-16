@@ -43,7 +43,7 @@ var proyectController = {
 		proyect.description = request.description;
 		proyect.category = request.category;
 		proyect.url = request.url;
-		proyect.Git = request.git;
+		proyect.git = request.git;
 
 		proyect.save((error, saved) => {
 			if(error) return res.status(500).send({message: 'Ha ocurrido un error al intentar guaradar los datos'});

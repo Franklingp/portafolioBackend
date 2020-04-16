@@ -9,10 +9,10 @@ const auth = require('../middlewares/auth.middleware');
 
 router.get('/test', proyectController.test);
 router.get('/get/:id?', proyectController.getProyects);
-router.post('/add', auth, proyectController.addProyect);
-router.put('/update/:id', auth, proyectController.updateProyect);
-router.delete('/remove/:id', auth, proyectController.removeProyect);
-router.post('/uploadImage/:id', auth, proyectController.uploadImage);
+router.post('/add', proyectController.addProyect); 		//auth this action neds the authenticatoin
+router.put('/update/:id', proyectController.updateProyect);	//auth
+router.delete('/remove/:id', proyectController.removeProyect); //auth
+router.post('/uploadImage/:id', proyectController.uploadImage);	//auth
 
 
 module.exports = router;
