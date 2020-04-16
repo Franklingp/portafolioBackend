@@ -4,7 +4,7 @@ _Este es un backend que permite hacer peticiones para guardar, actualizar, elimi
 
 ### Pre-requisitos 📋
 
-_Para poder ejecutar este proyecto necesitas tener disponible el gestor de paquetes npm en tu maquina_
+_Para poder ejecutar este proyecto necesitas tener disponible en tu PC Node JS, MongoDB y npm para poder descargar las dependencias necesarias y poder ejecutar el proyecto en un servidor local_
 
 ### Instalación 🔧
 
