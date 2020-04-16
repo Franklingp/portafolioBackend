@@ -1,2 +1,2 @@
 # portafolioBackend
-Backend  de =l proyecto portafolio construido en Node JS con Express.
+Backend  de proyecto portafolio construido en Node JS con Express.
