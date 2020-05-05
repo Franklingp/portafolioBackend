@@ -13,5 +13,4 @@ router.post('/add', proyectController.addProyect); 		//auth this action neds the
 router.put('/update/:id', proyectController.updateProyect);	//auth
 router.delete('/remove/:id', proyectController.removeProyect); //auth
 
-
 module.exports = router;
