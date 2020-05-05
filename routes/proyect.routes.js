@@ -12,7 +12,6 @@ router.get('/get/:id?', proyectController.getProyects);
 router.post('/add', proyectController.addProyect); 		//auth this action neds the authenticatoin
 router.put('/update/:id', proyectController.updateProyect);	//auth
 router.delete('/remove/:id', proyectController.removeProyect); //auth
-router.post('/uploadImage/:id', proyectController.uploadImage);	//auth
 
 
 module.exports = router;

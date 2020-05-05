@@ -35,7 +35,7 @@ const contactController = {
 				if(!found) return res.status(404).send({message: "No se han podido localizar el mensaje"});
 				
 				//Actualizo el estatus de el mensaje para guardarlo en la base de datos como leido
-				found.read = true;
+				found.read = !found.read;
 				found.save((error, updated) => {
 					if(error) return res.status(500).send({message: "Ah ocurrido un error al intencar localizar el mensaje"});
 					if(!updated) return res.status(404).send({message: "No se han podido localizar el mensaje"});

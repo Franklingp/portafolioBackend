@@ -10,7 +10,7 @@ const contactController = require("../controller/contact.controller");
 
 router.get("/test", contactController.test);
 router.post("/add", contactController.addMessage);
-router.get("/get/:id?", auth,contactController.getMessage);
-router.delete("/remove/:id", auth, contactController.deleteMessage);
+router.get("/get/:id?", contactController.getMessage); //auth
+router.delete("/remove/:id", contactController.deleteMessage); //auth
 
 module.exports = router;
