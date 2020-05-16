@@ -9,13 +9,14 @@ const secret = "Mi clave secreta";
 
 function isAuth(req, res, next){
 	//console.log(req.headers.authorization);
-	if(!req.headers.authorization) return res.status(403).send({message: 'No tiene autorizacion'});
-
-	let token = req.headers.authorization.split(' ')[1]; 		//porque la cabecera trae es: 'beare: token...s'
-	var payload = null;
-
-
+	if(!req.headers.authorization || req.headers.authorization === ""){
+		console.log(req.headers);
+		return res.status(403).send({message: 'No tiene autorizacion'});
+	}
+	
 	try{
+		let token = req.headers.authorization.split(' ')[1]; 		//porque la cabecera trae es: 'beare: token...s'
+		var payload = null;
 		payload = jwt.decode(token, secret);
 	}
 	catch(error){

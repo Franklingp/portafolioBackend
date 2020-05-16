@@ -11,7 +11,6 @@ var userController = {
 	//Funsion para iniciar secion en la pagina
 	singIn: function(req, res){
 		let userLog = req.body;
-		console.log(userLog);
 
 		User.findOne({'email': userLog.email}).exec((error, userDB) => {
 			if(error) return res.status(500).send({message: 'Ha ocurrido un error'});
@@ -53,13 +52,11 @@ var userController = {
 		user.surname = aux.surname;
 		user.email = aux.email;
 		user.password = aux.password;
-		//Agregar la imagen
 
 		User.findOne({'email': user.email}).exec((error, userFound)=> {
 			if(userFound){
 				return res.status(400).send({message: "El email ya esta registrado"});
 			}else{
-				//console.log(user);
 				user.save((error, userSaved) => {
 					if(error) return res.status(500).send({message: "Ha ocurrido un error al intentar registrar el usuario "});
 					
