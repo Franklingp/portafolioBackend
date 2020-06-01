@@ -23,4 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 
 #multimedia
-/public/images/*
+#/public/images/*
