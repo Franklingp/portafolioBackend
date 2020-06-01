@@ -14,7 +14,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect(config.dataBase, {useNewUrlParser: true})
 	.then(() => {
 		console.log("Se ha enlazado con la base de datos exitosamente");
-		app.listen(port, () => {
+		app.listen(process.env.PORT || 3700, () => {
 				console.log("Servidor corriendo exitosamente en la url: "+config.url);
 		});
 	})
