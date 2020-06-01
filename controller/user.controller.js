@@ -61,7 +61,7 @@ var userController = {
 					if(error) return res.status(500).send({message: "Ha ocurrido un error al intentar registrar el usuario "});
 					
 					//En token va una funsion donde se debe encripta un token y se envia al cliente, No se retorna datos del usuario
-					return res.status(200).send({user: userSaved}); //, TOKEN: auth.createToken(userSaved)
+					return res.status(200).send({message: 'success'});
 				});
 			}
 		});		

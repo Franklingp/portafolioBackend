@@ -6,6 +6,8 @@
 const Proyect = require('../models/proyect.model');
 const fs = require("fs");
 const path = require("path");
+const config = require('../config');
+const defaultImg = `${config.url}images/default.png`;
 
 var proyectController = {
 
@@ -39,9 +41,9 @@ var proyectController = {
 		const {name, description, category, url, git} = req.body;
 		let images = req.file;
 		if(images === undefined){
-			images = "http://localhost:3700/images/default.jpg";
+			images = defaultImg;
 		}else{
-			images = `http://localhost:3700/images/${images.filename}`;
+			images = `${config.url}images/${images.filename}`;
 		}
 
 		let proyect = new Proyect({name, description, category, url, git, images});
@@ -61,11 +63,11 @@ var proyectController = {
 		if(images !== undefined){
 			try{
 				let oldProject = await Proyect.findById(id);
-				if(oldProject.images !== "http://localhost:3700/images/default.jpg"){
+				if(oldProject.images !== defaultImg){
 					const oldImagePath = oldProject.images.split("/")[4];
 					fs.unlinkSync(path.join(__dirname, "../public/images/"+oldImagePath));
 				}
-				oldProject.images = `http://localhost:3700/images/${images.originalname}`;
+				oldProject.images = `${config.url}images/${images.originalname}`;
 				const response = await oldProject.save();
 				return res.status(200).send({Proyect: response});
 			}
@@ -88,7 +90,7 @@ var proyectController = {
 		Proyect.findByIdAndRemove(id, {new: true, useFindAndModify: false},(error, deleted) =>{
 			if(error) return res.status(500).send({message: 'Ha ocurrido un error al intentar eliminar el proyecto'});
 			if(!deleted) return res.status(404).send({message: "No se ha encontrado el proyecto"});
-			if(deleted.images !== "http://localhost:3700/images/default.jpg"){
+			if(deleted.images !== defaultImg){
 				let pathImg = deleted.images.split("/");
 				pathImg = pathImg[4];
 				fs.unlinkSync(path.join(__dirname, "../public/images/"+pathImg));

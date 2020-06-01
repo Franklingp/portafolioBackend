@@ -7,7 +7,6 @@ const bodyParser = require('body-parser');
 const app = express();
 const multer = require("multer");
 const path = require('path');
-const cors = require('cors');
 
 
 //Configuracion de multer para subir imagenes

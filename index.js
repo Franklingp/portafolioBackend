@@ -5,16 +5,17 @@
 
 //Aqui se configura el enlace con la base de datos con mongoose
 
+const config = require("./config");
 const mongoose = require('mongoose');
-const port = 3700;
+const port = config.port;
 const app = require('./app.js');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/portafolio', {useNewUrlParser: true})
+mongoose.connect(config.dataBase, {useNewUrlParser: true})
 	.then(() => {
 		console.log("Se ha enlazado con la base de datos exitosamente");
 		app.listen(port, () => {
-				console.log("Servidor corriendo exitosamente en la url: http://localhost:"+port);
+				console.log("Servidor corriendo exitosamente en la url: "+config.url);
 		});
 	})
 	.catch((error) => {console.log(error)});
