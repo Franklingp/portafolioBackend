@@ -7,8 +7,9 @@ const port = process.env.PORT || 3700;
 
 const config = {
     port,
-    url: `http://192.168.0.4:${port}/`,
+    // url: `http://192.168.0.4:${port}/`,
+    url: `http://localhost:${port}/`,
     dataBase: 'mongodb://localhost:27017/portafolio'
-} 
+}
 
 module.exports = config;
