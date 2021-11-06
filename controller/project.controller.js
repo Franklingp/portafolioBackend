@@ -89,11 +89,6 @@ const projectController = {
 		Proyect.findByIdAndRemove(id, { new: true, useFindAndModify: false }, (error, deleted) => {
 			if (error) return res.status(500).send({ message: 'Ha ocurrido un error al intentar eliminar el proyecto' });
 			if (!deleted) return res.status(404).send({ message: "No se ha encontrado el proyecto" });
-			if (deleted.images !== defaultImg) {
-				let pathImg = deleted.images.split("/");
-				pathImg = pathImg[4];
-				fs.unlinkSync(path.join(__dirname, "../public/images/" + pathImg));
-			}
 			return res.status(200).send({ Proyect: deleted });
 		});
 	},
