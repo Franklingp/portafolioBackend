@@ -38,8 +38,10 @@ const projectController = {
 
 	//funsion para agregar un nuevo proyecto a la base de datos
 	addProyect: function (req, res) {
-		const { name, description, category, url, git, images } = req.body;
-		if (images === undefined || !images) {
+		const { name, description, category, url, git } = req.body;
+		let { images } = req.body;
+
+		if (!images) {
 			images = defaultImg;
 		}
 

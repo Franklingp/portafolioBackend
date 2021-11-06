@@ -8,7 +8,7 @@ const userController = require('../controller/user.controller');
 
 //Definiendo las rutas que va a estar enlazadas con el controlador de usuarios
 
-router.post("/sing-up", userController.singUp);
-router.post("/sing-in", userController.singIn);
+router.post("/sign-up", userController.singUp);
+router.post("/sign-in", userController.singIn);
 
 module.exports = router;
