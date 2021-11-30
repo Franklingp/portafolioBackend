@@ -2,20 +2,25 @@
 
 // Desarrollo de Backend de el proyecto "portafolio"
 // con Node JS, express, mongoose, jwt-simple, body-parser...
+//"service mongod start" para iniciar servidor local de mongodb 
 
 //Aqui se configura el enlace con la base de datos con mongoose
 
-const config = require("./config");
+const { port, dataBase, url } = require("./config");
 const mongoose = require('mongoose');
-const port = config.port;
 const app = require('./app.js');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.dataBase, {useNewUrlParser: true})
+mongoose.connect(dataBase, { useNewUrlParser: true, useUnifiedTopology: true })
 	.then(() => {
 		console.log("Se ha enlazado con la base de datos exitosamente");
+<<<<<<< HEAD
 		app.listen(process.env.PORT || 3700, () => {
 				console.log("Servidor corriendo exitosamente en la url: "+config.url);
+=======
+		app.listen(port, () => {
+			console.log("Servidor corriendo exitosamente en la url: " + url);
+>>>>>>> master
 		});
 	})
-	.catch((error) => {console.log(error)});
+	.catch((error) => { console.log(error) });
