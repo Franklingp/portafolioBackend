@@ -15,7 +15,7 @@ mongoose.connect(dataBase, { useNewUrlParser: true, useUnifiedTopology: true })
 	.then(() => {
 		console.log("Se ha enlazado con la base de datos exitosamente");
 		app.listen(process.env.PORT || 3700, () => {
-			console.log("Servidor corriendo exitosamente en la url: " + config.url);
+			console.log("Servidor corriendo exitosamente en la url: " + url);
 		});
 	})
 	.catch((error) => { console.log(error) });
